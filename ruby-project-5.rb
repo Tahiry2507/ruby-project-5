@@ -1,4 +1,4 @@
-# # 1) Create a loop that implements "while" and "until"
+# 1) Create a loop that implements "while" and "until"
 
 puts "This is the 'while' loop\n\n"
 
@@ -52,7 +52,8 @@ def raise_exception
 		puts 'After the raise'
 
 # 5) Show an example of using "begin/rescue"
-	# We use one or more rescue clauses to tell Ruby the types of exceptions we want to handle if an error occurs
+	# We use one rescue clause to tell Ruby the types of exceptions we want to handle if an error occurs.
+# 6) We use multiple rescue statements if the exceptions are not handled by one rescue, so it will trickle down to the next rescue.
 
 	rescue 
 		puts 'Rescued for the first time'
@@ -64,11 +65,12 @@ def raise_exception
 		puts 'Rescued for the third time'
 	end
 
-	puts 'after being rescued'
+# 7) Show an example of using "ensure", ensure is used to guarantee that some processing is done at the end of a block of code, 
+#	 regardless of whether an exception was raised.
+
+ensure puts "Ensure is ran"
 end
 
 raise_exception
-
-# done
 
 
