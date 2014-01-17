@@ -46,31 +46,54 @@ end
 
 puts "The final value of a is #{a}"
 # 4) Raise an exception
+
 def raise_exception
 	begin
+		puts "I am before the raise 1"
 		raise 'An error has occured during the process'
 		puts 'After the raise'
+	rescue
+		puts 'Rescued for the first time'
+	end
+end
+
+raise_exception
+
 
 # 5) Show an example of using "begin/rescue"
 	# We use one rescue clause to tell Ruby the types of exceptions we want to handle if an error occurs.
 # 6) We use multiple rescue statements if the exceptions are not handled by one rescue, so it will trickle down to the next rescue.
 
-	rescue 
-		puts 'Rescued for the first time'
+print "What is your name: "
+a = gets.chomp
+print "How old are you, #{a}? "
+b = gets.chomp.to_i
+print "What is your favorite number? "
+c = gets.chomp.to_i
 
-	rescue 
-		puts 'Rescued for the second time'
+puts "\n\t##################################\n\n"
 
-	rescue 
-		puts 'Rescued for the third time'
+begin
+	if a == ""
+		raise
+	else
+		puts "Hello #{a}"
 	end
+
+	puts "#{b} divided by you #{c} is equal to #{b/c} :)"
+rescue ZeroDivisionError
+	puts "Please, pick another number other than 0"
+
+rescue RuntimeError
+	puts "Sorry, your name is missing"
+ensure puts "Ensure is ran"
+end
 
 # 7) Show an example of using "ensure", ensure is used to guarantee that some processing is done at the end of a block of code, 
 #	 regardless of whether an exception was raised.
 
-ensure puts "Ensure is ran"
-end
 
-raise_exception
+
+# raise_exception
 
 
